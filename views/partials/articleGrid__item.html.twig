@@ -1,5 +1,3 @@
-{# cache 'gridItem'~class {gen: article} #}
-
 {% if article.featureMedia %}
   {% gimme rendition with { 'media': article.featureMedia, 'name': '610x380', 'fallback': 'original' } %}
     {% set rend610 = path(rendition) %}
@@ -47,5 +45,3 @@
     <a class="articleMetadata__comments articleMetadata__info" href="#">20</a>
   </div>
 </article>
-
-{# endcache #}

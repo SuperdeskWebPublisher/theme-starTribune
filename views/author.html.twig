@@ -17,7 +17,7 @@
         {% set currentAuthor = author %} 
 
         <div class="authorMetadata marginTop30 marginBottom30">       
-          <figure class="authorMetadata__image"><img src="{{ author.avatarUrl }}"></figure>
+          <figure class="authorMetadata__image"><img src="{{ url(author.avatar) }}"></figure>
           <div class="authorMetadata__infoWrap">
             <h2>{{ author.name }}</h2>
             <p>{{ author.biography }}</p>

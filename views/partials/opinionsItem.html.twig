@@ -1,4 +1,3 @@
-{% cache 'opinionItem'~class {gen: article} %}
 <article class="opinionsItem {{class}}">
             <a class="opinionsItem__image" href="{{ url(article) }}">
               {% if article.authors %}
@@ -27,4 +26,3 @@
                     {{ article.lead|striptags|safeTruncate(200,"...") }}
                   {%endif%}</p>
           </article>
-{% endcache %}

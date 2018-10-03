@@ -1,5 +1,3 @@
-{# cache 'topArticle'~gimme.route.slug~article.id {gen: article} #}
-
   {% if article.featureMedia %}
     {% gimme rendition with { 'media': article.featureMedia, 'name': '610x380', 'fallback': 'original' } %}
       {% set rend610 = path(rendition) %}
@@ -45,4 +43,3 @@
         </div>
       </div>
     </div>
-{# endcache #}

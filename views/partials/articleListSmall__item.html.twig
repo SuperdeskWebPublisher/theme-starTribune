@@ -1,4 +1,3 @@
-{% cache 'listsmallItem'~class {gen: article} %}
 <article class="articleListSmall__item">
 
   {% if article.featureMedia %}
@@ -15,18 +14,17 @@
     {% endgimmelist %}
   {% endif %}
 
-                {% if rend610 %}
-                <a class="articleListSmall__image" href="{{ url(article) }}"><img src="{{ rend610 }}" alt="{{ imgCaption }}" width="90"  /></a>
-                {% endif %}
-                <h4 class="articleListSmall__headline"><a href="{{ url(article) }}">{{ article.title }}</a></h4>
-                <div class="articleMetadata">
-                {% if article.authors %}
-                  {% for author in article.authors %}
-                  <span class="articleMetadata__byline">by <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}">{{ author.name }}</a></span>
-                  {% endfor %}
-                {% elseif article.metadata.byline %}
-                <span class="articleMetadata__byline">by <a href="#">{{ article.metadata.byline }}</a></span>
-                {% endif %}
-                </div>
-              </article>
-{% endcache %}
+  {% if rend610 %}
+  <a class="articleListSmall__image" href="{{ url(article) }}"><img src="{{ rend610 }}" alt="{{ imgCaption }}" width="90"  /></a>
+  {% endif %}
+  <h4 class="articleListSmall__headline"><a href="{{ url(article) }}">{{ article.title }}</a></h4>
+  <div class="articleMetadata">
+  {% if article.authors %}
+    {% for author in article.authors %}
+    <span class="articleMetadata__byline">by <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}">{{ author.name }}</a></span>
+    {% endfor %}
+  {% elseif article.metadata.byline %}
+  <span class="articleMetadata__byline">by <a href="#">{{ article.metadata.byline }}</a></span>
+  {% endif %}
+  </div>
+</article>
