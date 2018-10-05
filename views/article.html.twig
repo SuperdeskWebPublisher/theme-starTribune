@@ -17,7 +17,7 @@
     <div class="article col-md-9 col-sm-12 col-xs-12">
       <article>
 
-{% cache 'newsArticle'~gimme.article.id {gen: gimme.article} %}
+{% cache 'newsArticle' {gen: gimme.article} %}
 
         {% set articleKicker = null %}
         {% for keyword in gimme.article.keywords %}
@@ -77,14 +77,12 @@
       </figure>
 
       <div class="article__text marginTop30">
-        <p>{{ gimme.article.body|raw }}</p>
 
-        {#
-        <div class="article__entrefilet article__floatLeft">
-          <h3>Entrefilet</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu enim in velit bibendum gravida nec et odtio. Cras congue, orci vitae eleifend congue, felis mi tincidunt risus, et lobortis turpis ex vel velit. Nullam pellentesque tempor magna a fermentum.</p>
-        </div>
-        #}
+{% if gimme.article.paywallSecured or gimme.article.route.paywallSecured %}
+      <p>YOU NEED TO BUY SUBSCRIPTION FOR THIS ARTICLE</p>
+{% else %}
+
+        <p>{{ gimme.article.body|raw }}</p>
 
         {% for keyword in gimme.article.keywords %}
         {% if loop.first %}
@@ -110,6 +108,9 @@
         })();
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}
+
 {% endcache %}
     </article>
 

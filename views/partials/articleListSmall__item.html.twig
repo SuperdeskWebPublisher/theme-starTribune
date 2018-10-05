@@ -17,7 +17,7 @@
   {% if rend610 %}
   <a class="articleListSmall__image" href="{{ url(article) }}"><img src="{{ rend610 }}" alt="{{ imgCaption }}" width="90"  /></a>
   {% endif %}
-  <h4 class="articleListSmall__headline"><a href="{{ url(article) }}">{{ article.title }}</a></h4>
+  <h4 class="articleListSmall__headline"><a href="{{ url(article) }}">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</a></h4>
   <div class="articleMetadata">
   {% if article.authors %}
     {% for author in article.authors %}

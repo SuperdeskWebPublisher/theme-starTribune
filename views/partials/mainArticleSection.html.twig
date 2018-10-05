@@ -10,7 +10,7 @@
           <div class="mainArticle__text col-md-8 col-sm-6 col-xs-12">
             <a href="{{ url(article) }}">
               {% if articleKicker %}<span class="mainArticle__kicker mainArticle__kicker--section">{{ articleKicker }}</span>{% endif %}
-              <h2 class="mainArticle__headline">{{ article.title }}</h2>
+              <h2 class="mainArticle__headline">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</h2>
             </a>
             
             <div class="mainArticle__teaser">

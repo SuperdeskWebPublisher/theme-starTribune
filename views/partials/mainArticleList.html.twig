@@ -42,7 +42,7 @@
           <div class="mainArticleList__text ">
             <a href="{{ url(article) }}">
               {% if articleKicker %}<span class="mainArticleList__kicker">{{ articleKicker }}</span>{% endif %}
-              <h2 class="mainArticleList__headline">{{ article.title }}</h2>
+              <h2 class="mainArticleList__headline">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</h2>
             </a>
             {% if deck!='none' %}
             <div class="mainArticleList__teaser">

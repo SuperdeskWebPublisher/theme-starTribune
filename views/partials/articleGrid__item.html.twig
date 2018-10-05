@@ -28,7 +28,7 @@
 
   <a href="{{ url(article) }}">
     {% if articleKicker %}<span class="articleGrid__kicker">{{ articleKicker }}</span>{% endif %}
-    <h3 class="articleGrid__headline">{{ article.title }}</h3>
+    <h3 class="articleGrid__headline">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</h3>
   </a>
   <p class="articleGrid__text">
       {{ article.lead|striptags|safeTruncate(160,"...") }}

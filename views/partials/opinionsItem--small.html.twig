@@ -21,6 +21,6 @@
             {% endif %}
             </div>
             <a href="{{ url(article) }}">
-              <h3 class="opinionsItem__headline opinionsItem__headline--small">{{ article.title }}</h3>
+              <h3 class="opinionsItem__headline opinionsItem__headline--small">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</h3>
             </a>
           </article>

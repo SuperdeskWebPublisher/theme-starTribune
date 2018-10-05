@@ -17,7 +17,7 @@
 
             </a>
             <a href="{{url(article)}}">
-              <h3 class="opinionsItem__headline">{{article.title}}</h3>
+              <h3 class="opinionsItem__headline">{% include 'partials/ifSecured.html.twig' %}{{article.title}}</h3>
             </a>
             <p class="opinionsItem__text">
                   {% if article.lead is empty %}

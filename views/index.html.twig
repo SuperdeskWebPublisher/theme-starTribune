@@ -6,10 +6,10 @@
 
   {% if themeSetting('breakingNews_switch') %}
     {% set brNews = true %}
-    {% set listLength = 8 %}
+    {% set listLength = 12 %}
   {% else %}  
     {% set brNews = false %}
-    {% set listLength = 7 %}
+    {% set listLength = 11 %}
   {% endif %}
 
   {% gimme contentList with {contentListName: 'Top news'} %}
