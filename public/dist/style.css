@@ -132,6 +132,11 @@ input {
       padding-right: 30px;
       border-right: 1px dotted #cccccc; } }
 
+.lockIcon {
+  float: right; }
+  .lockIcon img {
+    width: 24px; }
+
 .accordion {
   overflow: hidden;
   counter-reset: number; }
@@ -530,6 +535,8 @@ input {
       margin-top: 0px; } }
   .articleListSmall .articleListSmall__headline:hover a {
     color: #547688; }
+  .articleListSmall .articleListSmall__headline .lockIcon img {
+    width: 18px; }
 
 .articleListSmall--latestNews .articleListSmall__image {
   float: left; }
