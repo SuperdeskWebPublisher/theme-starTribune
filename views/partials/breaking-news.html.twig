@@ -27,7 +27,7 @@
           </a>
         </figure>
         <div class="gallery__text">
-          <h3 class="gallery__headline"><a href="{{ path(article) }}">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</a></h3>
+          <h3 class="gallery__headline"><a href="{{ path(article) }}">{% include 'partials/ifSecured.html.twig' with {'lock': 'white' } %}{{ article.title }}</a></h3>
           <p>{{ article.lead|striptags|safeTruncate(200,"...") }}</p>
           <div class="articleMetadata">
           {% if article.authors %}

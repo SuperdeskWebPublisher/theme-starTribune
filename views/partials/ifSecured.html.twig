@@ -1,1 +1,1 @@
-{% if article.paywallSecured or article.route.paywallSecured %}<span class="lockIcon"><img src="{{ asset('theme/img/lock-black.svg') }}"></span>{% endif %}
+{% if article.paywallSecured or article.route.paywallSecured %}<span class="lockIcon"><img src="{% if lock == "white" %}{{ asset('theme/img/lock-white.svg') }}{% else %}{{ asset('theme/img/lock-black.svg') }}{% endif %}"></span>{% endif %}

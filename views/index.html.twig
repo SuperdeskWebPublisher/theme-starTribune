@@ -77,15 +77,15 @@
 
         {% include 'elements/most.html.twig' with {'class' : 'marginBottom30'} %}
 
-        {% if themeSetting('sidebar_switch') %}
-          {% include 'partials/featured-author.html.twig'  %}
-        {% endif %}
-
 				<div class="subscribe subscribe--banner marginBottom30">
 					<h3 class="subscribe__headline">Subscribe</h3>
-					<a href="#" class="subscribe__image"><img src="{{ asset('theme/img/subscribe.png') }}" alt=""></a>
+					<img src="{{ asset('theme/img/subscribe.png') }}" alt="Subscribe">
 					<p class="subscribe__text">Your subscription helps support independent investigative journalism</p>
-					<a href="#" class="button button--color">Subscribe</a>
+					{% if app.user %}
+					<a href="https://hub.s-lab.sourcefabric.org/app_dev.php?email={{ app.user.email }}" class="button button--color">Subscribe</a>
+					{% else %}
+					<a href="#" class="button button--color" data-toggle="modal" data-target="#loginPopup">Sign In to Subscribe</a>
+					{% endif %}
 				</div>
 
 				{% if themeSetting('sidebar_switch') %}

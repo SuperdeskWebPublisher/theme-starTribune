@@ -6,7 +6,7 @@
               {% for author in article.authors %}
               <a class="opinionsItem__image opinionsItem__image--small" href="{{ url(article) }}">
                 <figure>
-                  <img src="{{ author.avatarUrl }}" alt="{{ author.name }}">
+                  <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
                 </figure>
               </a>               
               <span class="articleMetadata__byline">by <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}">{{ author.name }}</a></span>

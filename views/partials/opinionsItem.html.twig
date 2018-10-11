@@ -4,7 +4,7 @@
 
                 {% for author in article.authors %}
                 <figure>
-                  <img src="{{ author.avatarUrl }}" alt="{{ author.name }}">
+                  <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
                 </figure>                
                 <span class="opinions__author">by {{ author.name }}</span>
                 {% endfor %}
