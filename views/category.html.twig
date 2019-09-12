@@ -81,11 +81,14 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-3">
-
     {% include 'elements/most.html.twig' with {'class' : 'marginBottom30'} %}
-    {% container 'frontSidebar' %}
-    {% endcontainer %}
+    <div class="ad hidden-xs marginTop30 marginBottom30">
+      <img src="{{ asset('theme/img/article_img/ad.png') }}">
+    </div>
 
+    <div class="marginTop30 marginBottom30">
+      {% include 'elements/facebook.html.twig' %}
+    </div>
   </div>
 </div>
 

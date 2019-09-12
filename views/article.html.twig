@@ -2,22 +2,12 @@
 
 {% block body %}
 
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-     <div class="slides"></div>
-     <h3 class="title"></h3>
-     <a class="prev">‹</a>
-     <a class="next">›</a>
-     <a class="close">×</a>
-     <a class="play-pause"></a>
-     <ol class="indicator"></ol>
-</div>
-
 <main class="container">
   <div class="row">
     <div class="article col-md-9 col-sm-12 col-xs-12">
       <article>
 
-{% cache 'newsArticle' {gen: gimme.article} %}
+{# cache 'newsArticle' {gen: gimme.article} #}
 
         {% set articleKicker = null %}
         {% for keyword in gimme.article.keywords %}
@@ -77,19 +67,37 @@
       </figure>
 
       <div class="article__text marginTop30">
-
+{% set articleId = false %}
+{% set routeId = false %}
+{% set openCont = true %}
 {% if gimme.article.paywallSecured or gimme.article.route.paywallSecured %}
-      <p>YOU NEED TO BUY SUBSCRIPTION FOR THIS ARTICLE</p>
-{% else %}
+    {% set articleId = gimme.article.id %}
+    {% set routeId = gimme.article.route.id %}
+    {% set openCont = false %}
+    {% gimme subscription with { 'user': app.user, 'articleId': articleId } %}
+        {% set openCont = true %}
+    {% endgimme %}
+    {% gimme subscription with { 'user': app.user, 'routeId': routeId } %}
+        {% set openCont = true %}
+    {% endgimme %}    
+    {% if openCont %}
+      <p><em>THIS IS PREMIUM CONTENT YOU ARE SUBSCRIBED TO! ENJOY!</em></p>
+    {% else %}
+      <p><em>YOU NEED TO BUY SUBSCRIPTION FOR THIS ARTICLE</em></p>
+    {% endif %}
+{% endif %}
 
+{% if openCont %}
         <p>{{ gimme.article.body|raw }}</p>
 
         {% for keyword in gimme.article.keywords %}
         {% if loop.first %}
         <ul class="article__keywords">
-          <li>Keywords: </li>
-          {% endif %}  
-              <li><a href="{{ url('trending') }}?topic={{ keyword|lower }}">{{ keyword|lower }}</a></li>
+          <li class="article__keywordsHeadline">Tags: </li>
+          {% endif %}
+          {% if keyword.slug != "" %}
+              <li><a href="{{ url('Tag', { 'tagSlug' : keyword.slug }) }}">{{ keyword }}</a></li>
+          {% endif %}
           {% if loop.last %}  
         </ul>
         {% endif %}
@@ -111,30 +119,42 @@
 
 {% endif %}
 
-{% endcache %}
+{# endcache #}
     </article>
 
+
+
     <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <h3 class="sectionHeadingBold marginTop30"><a href="{{path(gimme.article.route)}}">More from {{ gimme.article.route.name|capitalize }}</a></h3>
-        <div class="row">
+      <div class="col-xs-12">
+        <h3 class="sectionHeadingBold marginTop30"><a href="{{ path(gimme.article.route) }}">More from {{ gimme.article.route.name|capitalize }}</a></h3>
+      </div>
 
       {% set currArt = gimme.article.id %}
-        <div class="articleGrid col-md-6 col-sm-6 col-xs-12">
-        {% gimmelist article from articles|start(0)|limit(1)|order('publishedAt','desc') if id != currArt %}
+
+{% cache 'articleMoreFromSection' { gen: gimme.article } %}
+      
+      {% gimmelist article from articles|start(0)|limit(4)|order('publishedAt','desc') without {article: [currArt]} %}
+      
+      {% if loop.index == 1 %}
+      <div class="articleGrid col-md-6 col-sm-6 col-xs-12">
           {% include 'partials/articleGrid__item.html.twig' with {'class' : 'articleGrid__item--fourColumns'} %}
-        {% endgimmelist %}
-
-        </div>
-
-        <div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
-        {% gimmelist article from articles|start(1)|limit(4)|order('publishedAt','desc') %}
-          {% include 'partials/articleListSmall__item.html.twig'  %}
-        {% endgimmelist %}
-        </div>
       </div>
+      {% else %}
+        {% if loop.index == 2 %}    
+        <div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
+        {% endif %}
+        {% if loop.index in [2,3,4] %}
+          {% include 'partials/articleListSmall__item.html.twig' %}
+        {% endif %}
+        {% if loop.last %}
+        </div>
+        {% endif %}
+      {% endif %}
+      {% endgimmelist %}
+        
+{% endcache %}
+
     </div>
-  </div>
 
   <div class="banner greyBackground marginBottom30 col-md-12 col-sm-12 col-xs-12">
     <div class="row">
@@ -155,7 +175,7 @@
 
   {% include 'elements/most.html.twig' with {'class' : 'marginBottom30'} %}
 
-  {% container 'frontSidebar' %}{% endcontainer %}
+  {% include 'elements/subscribe.html.twig' with {'articleId': articleId, 'routeId': routeId} %}
 
 </div>
 

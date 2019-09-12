@@ -49,18 +49,14 @@
           <div class="modalUser__inputWrap">
             <input type="submit" value="Save Profile" class="button button--color">
           </div> 
-        <div class="modalUser__inputWrap"> 
-        {% gimmelist subscription from subscriptions %}
-            <p>subscr. id: {{ subscription.id }}</p> {# subscription's id, this is set in the Paywall Adapter#}
-            <p>subscr. code: {{ subscription.code }}</p> {# subscription's code, this is set in the Paywall Adapter #}
-            <p>subscr. active: {{ subscription.active }}</p> {# is subscription active, this is set in the Paywall Adapter #}
-            <p>subscr. type: {{ subscription.type }}</p> {# type of the subscription, this is set in the Paywall Adapter #}
-            <p>article id: {{ subscription.details.articleId }}</p> {# an array with more details about the subscription, this is set in the Paywall Adapter #}
-            <p>updated: {{ subscription.updatedAt|date('Y-m-d') }}</p>
-            <p>created: {{ subscription.createdAt|date('Y-m-d') }}</p>
-        {% endgimmelist %}
-        </div>
         </form>  
+
+        <div>
+            <p><strong>Your current susbcriptions</p>
+            {% gimmelist subscription from subscriptions with { user: app.user } %}
+                    <p>Subscr. #{{ subscription.id }}, active: {% if subscription.active %}yes{% else %}no{% endif %}, {{ subscription.type }}, {% if subscription.details.articleId %}article id: {{ subscription.details.articleId }}, {% endif %}created: {{ subscription.createdAt|date('Y-m-d') }}</p>
+               {% endgimmelist %}
+          </div>
 
         <div id="editProfileResult" class="notification"></div>      
 

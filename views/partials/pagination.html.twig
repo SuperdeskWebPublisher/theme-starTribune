@@ -18,9 +18,9 @@
             {% for i in 1..lastPage %}
 
                 {%if i == currentPage %}
-                  <li class="active"><span>{{i}}</span></li>
+                  <li class="active"><span>{{ i }}</span></li>
                 {% else %}
-                <li><a href="{{ path(paginationPath, currentFilters|merge({page: i})) }}">{{i}}</a></li>
+                <li><a href="{{ path(paginationPath, currentFilters|merge({page: i})) }}">{{ i }}</a></li>
               {% endif %}
             {% endfor %}
 
