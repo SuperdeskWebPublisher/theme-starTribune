@@ -1,22 +1,35 @@
+{% set rend400 = null %}
+{% set webp400 = false %}
+{% set fallbackJPGsmall = null %}
+{% set mimeType = null %} 
+
+{% if article.featureMedia %}
+  {% gimme rendition with { 'media': article.featureMedia, 'name': '400x240', 'fallback': 'thumbnail' } %}
+    {% set rend400 = path(rendition) %}
+    {% set fallbackJPGsmall = path(rendition) %}
+    {% set imgCaption = article.featureMedia.description %}
+    {% set imgCredit = article.featureMedia.byLine %}
+    {% if rendition.isConvertedToWebp %}
+      {% set rend400 = path(rendition, { webp: true }) %}
+      {% set webp400 = true %}
+    {% endif %}
+  {% endgimme %}
+{% else %}
+    {% set imgCaption = "Tribune Theme" %}
+    {% set fallbackJPGsmall = "/public/img/article_img/400x240.jpg" %}
+{% endif %}
+
 <article class="articleListSmall__item">
+  <a class="articleListSmall__image" href="{{ url(article) }}">
+    <figure>
+      <picture>
+          {% if webp400 %}<source data-srcset="{{ rend400 }}" type="image/webp">{% endif %}                  
+          <source data-srcset="{{ fallbackJPGsmall }}" type="{{ mimeType }}">
+          <img class="lazyload" style="display: block" data-src="{{ fallbackJPGsmall }}" alt="{{ imgCaption }}" title="{{ imgCaption }} {% if imgCredit != '' %}(Foto: {{ imgCredit }}){% endif %}" width="90">
+      </picture>
+    </figure>
+  </a>
 
-  {% if article.featureMedia %}
-    {% gimme rendition with { 'media': article.featureMedia, 'name': '610x380', 'fallback': 'original' } %}
-      {% set rend610 = path(rendition) %}
-      {% set imgCaption = article.featureMedia.description %}
-    {% endgimme %}
-  {% else %}
-    {% gimmelist media from articleMedia|limit(1) with {'article': article} %}
-      {% set imgCaption = media.body %}
-      {% gimme rendition with { media: media, 'name': '610x380', 'fallback': 'original' } %}
-           {% set rend610 = path(rendition) %}
-      {% endgimme %}
-    {% endgimmelist %}
-  {% endif %}
-
-  {% if rend610 %}
-  <a class="articleListSmall__image" href="{{ url(article) }}"><img src="{{ rend610 }}" alt="{{ imgCaption }}" width="90"  /></a>
-  {% endif %}
   <h4 class="articleListSmall__headline"><a href="{{ url(article) }}">{% include 'partials/ifSecured.html.twig' %}{{ article.title }}</a></h4>
   <div class="articleMetadata">
   {% if article.authors %}

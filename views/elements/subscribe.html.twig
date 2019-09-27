@@ -1,10 +1,10 @@
-				<div class="subscribe subscribe--banner marginBottom30">
-					<h3 class="subscribe__headline">Subscribe</h3>
-					<img src="{{ asset('theme/img/subscribe.png') }}" alt="Subscribe">
-					<p class="subscribe__text">Your subscription helps support independent investigative journalism</p>
-					{% if app.user %}
-					<a href="https://hub.s-lab.sourcefabric.org/app_dev.php?email={{ app.user.email }}{% if articleId %}&articleId={{ articleId }}{% endif %}{% if gimme.article.route.paywallSecured %}&routeId={{ routeId }}{% endif %}" class="button button--color">Subscribe</a>
-					{% else %}
-					<a href="#" class="button button--color" data-toggle="modal" data-target="#loginPopup">Sign In to Subscribe</a>
-					{% endif %}
-				</div>
+	<div class="subscribe subscribe--banner marginBottom30">
+		<h3 class="subscribe__headline">Subscribe</h3>
+		<img src="{{ asset('theme/img/subscribe.png') }}" alt="Subscribe">
+		<p class="subscribe__text">Your subscription helps support independent investigative journalism</p>
+		{% if app.user %}
+		<a href="https://hub.s-lab.sourcefabric.org/app_dev.php?email={{ app.user.email }}{% if articleId %}&articleId={{ articleId }}{% endif %}{% if gimme.article.route.paywallSecured %}&routeId={{ routeId }}{% endif %}" class="button button--color">Subscribe</a>
+		{% else %}
+		<a href="#" class="button button--color" data-toggle="modal" data-target="#loginPopup">Sign In to Subscribe</a>
+		{% endif %}
+	</div>

@@ -1,38 +1,37 @@
-{% container 'listMost' with {
-'cssClass': 'accordion marginBottom30'
-}%}
+<div class="accordion {{ class }}">
 
   <div class="accordion__section">
     <a class="accordion__sectionTitle active" href="#accordion-1">Most read</a>
     <div id="accordion-1" class="accordion__sectionContent">
-      {# This is the markup for the list item #}
+    {% cache 'mostReadWidget' {time: 120} %}
+    {% gimmelist article from articles|limit(5)|order('pageViews', 'desc')|dateRange('now', '-1 week') ignoreContext %}
       <article class="accordion__sectionItem">
-        <h4 class="accordion__sectionHeadline"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h4>
-        <span class="accordion__sectionCount">120.406 views</span>
+        <h4 class="accordion__sectionHeadline"><a href="{{ url(article) }}">{{ article.title }}</a></h4>
+        <span class="accordion__sectionCount">{{ article.articleStatistics.pageViewsNumber }} views</span>
       </article>
+    {% endgimmelist %}
+    {% endcache %}
     </div>
   </div>
 
   <div class="accordion__section">
-    <a class="accordion__sectionTitle" href="#accordion-2">Most commented</a>
+    <a class="accordion__sectionTitle" href="#accordion-2">Editor's choice</a>
     <div id="accordion-2" class="accordion__sectionContent">
-      {# This is the markup for the list item #}
+
+  {% gimme contentList with {contentListName: 'Editors choice'} %}
+    {% cache 'contentListEditorChoice' { gen: contentList } %}
+    {% gimmelist item from contentListItems|limit(5) with { contentListName: contentList.name } %}
+      {% set article = item.content %}
+      
       <article class="accordion__sectionItem">
-        <h4 class="accordion__sectionHeadline"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h4>
-        <span class="accordion__sectionCount">120.406 views</span>
+        <h4 class="accordion__sectionHeadline"><a href="{{ url(article) }}">{{ article.title }}</a></h4>
+        <span class="accordion__sectionCount">{{ article.articleStatistics.pageViewsNumber }} views</span>
       </article>
+
+    {% endgimmelist %}
+    {% endcache %}
+  {% endgimme %}
     </div>
   </div>
 
-  <div class="accordion__section">
-    <a class="accordion__sectionTitle" href="#accordion-3">Most shared</a>
-    <div id="accordion-3" class="accordion__sectionContent">
-      {# This is the markup for the list item #}
-      <article class="accordion__sectionItem">
-        <h4 class="accordion__sectionHeadline"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h4>
-        <span class="accordion__sectionCount">120.406 views</span>
-      </article>
-    </div>
-  </div>
-
-{% endcontainer %}
+</div>

@@ -77,7 +77,7 @@
         {% include 'elements/subscribe.html.twig' %}
 
 				{% if themeSetting('sidebar_switch') %}
-					{% include 'partials/featured-author.html.twig'  %}
+					{% include 'elements/featured-author.html.twig'  %}
 				{% endif %}
 
 				<div class="ad hidden-xs marginTop30 marginBottom30">
@@ -198,7 +198,7 @@
 						{% endgimmelist %}
 					</div>
 					<div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
-						{% gimmelist article from articles|start(1)|limit(3) with {'route': '/sports'}  %}
+						{% gimmelist article from articles|start(1)|limit(3) with {route: route}  %}
 								{% include 'partials/articleListSmall__item.html.twig'  %}
 						{% endgimmelist %}
 					</div>
