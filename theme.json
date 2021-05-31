@@ -111,11 +111,6 @@
                 "label": "Main Navigation",
                 "children": [
                     {
-                        "name": "home",
-                        "label": "Home",
-                        "route": "homepage"
-                    },
-                    {
                         "name": "politics",
                         "label": "Politics",
                         "route": "Politics"

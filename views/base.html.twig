@@ -119,7 +119,7 @@
 
         <div class="topBar__links col-sm-9 col-md-8 col-xs-12">
           <ul class="pull-left">
-            {% gimmelist article from articles|start(0)|limit(2) with {'route' : '/about' } %}
+            {% gimmelist article from articles|start(0)|limit(5) with {'route' : '/about' } %}
             <li><a href="{{ url(article) }}">{{ article.title }}</a></li>
             {% endgimmelist %}
           </ul>
@@ -189,7 +189,24 @@
 
 {% include 'widgets/menu1.html.twig' %}
 
-{% set trendingTopics = ["LeBron James", "Prague", "Lana Del Rey"] %}
+{% set mostPopularKeywords = {} %}
+{% gimme contentList with {contentListName: "Top news"} %}
+{% gimmelist item from contentListItems|start(0)|limit(20) with { contentListName: contentList.name } %}
+    {% set article = item.content %}
+    {% for keyword in article.keywords %}
+        {% set key = keyword.slug %}
+        {% if key not in mostPopularKeywords|keys %}     
+            {% set mostPopularKeywords = mostPopularKeywords|merge({ (key) : 1 }) %}
+        {% else %}
+            {% set value = mostPopularKeywords[key] %}
+            {% set value = value + 1 %}
+            {% set mostPopularKeywords = mostPopularKeywords|merge({(key): value}) %}
+        {% endif %}
+    {% endfor %}
+   
+{% endgimmelist %}
+{% set mostPopularKeywords = mostPopularKeywords|sort|reverse|slice(0,3) %}
+{% endgimme %}
 
   <div class="trendingTopics">
     <div class="container">
@@ -197,8 +214,10 @@
         <nav role="navigation" id="topics" class="okayNav">
           <ul class="trendingTopics__items">
             <li>Trending topics</li>
-            {% for topic in trendingTopics %}
-            <li><a href="{{ url('Tag', { 'tagSlug' : topic|slugify }) }}">{{ topic }}</a></li>
+            {% for slug, value in mostPopularKeywords %}
+                {% gimme keyword with {'slug': slug } %}
+                <li><a href="{{ url('Tag', { 'tagSlug' : keyword.slug }) }}">{{ keyword }}</a></li>
+                {% endgimme %}
             {% endfor %}
           </ul>
         </nav>

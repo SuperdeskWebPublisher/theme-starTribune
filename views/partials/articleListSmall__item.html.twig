@@ -2,6 +2,8 @@
 {% set webp400 = false %}
 {% set fallbackJPGsmall = null %}
 {% set mimeType = null %} 
+{% set imgCaption = null %}
+{% set imgCredit = null %}
 
 {% if article.featureMedia %}
   {% gimme rendition with { 'media': article.featureMedia, 'name': '400x240', 'fallback': 'thumbnail' } %}
@@ -14,9 +16,6 @@
       {% set webp400 = true %}
     {% endif %}
   {% endgimme %}
-{% else %}
-    {% set imgCaption = "Tribune Theme" %}
-    {% set fallbackJPGsmall = "/public/img/article_img/400x240.jpg" %}
 {% endif %}
 
 <article class="articleListSmall__item">

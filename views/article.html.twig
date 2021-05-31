@@ -147,7 +147,6 @@
     </article>
 
 
-
     <div class="row">
       <div class="col-xs-12">
         <h3 class="sectionHeadingBold marginTop30"><a href="{{ path(gimme.article.route) }}">More from {{ gimme.article.route.name|capitalize }}</a></h3>
@@ -155,28 +154,28 @@
 
       {% set currArt = gimme.article.id %}
 
-{% cache 'articleMoreFromSection' { gen: gimme.article } %}
+{# cache 'articleMoreFromSection' { gen: gimme.article } #}
       
       {% gimmelist article from articles|start(0)|limit(4)|order('publishedAt','desc') without {article: [currArt]} %}
       
       {% if loop.index == 1 %}
-      <div class="articleGrid col-md-6 col-sm-6 col-xs-12">
+        <div class="articleGrid col-md-6 col-sm-6 col-xs-12">
           {% include 'partials/articleGrid__item.html.twig' with {'class' : 'articleGrid__item--fourColumns'} %}
-      </div>
+        </div>
       {% else %}
         {% if loop.index == 2 %}    
-        <div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
-        {% endif %}
-        {% if loop.index in [2,3,4] %}
-          {% include 'partials/articleListSmall__item.html.twig' %}
-        {% endif %}
-        {% if loop.last %}
-        </div>
+          <div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
+          {% endif %}
+          {% if loop.index in [2,3,4] %}
+            {% include 'partials/articleListSmall__item.html.twig' %}
+          {% endif %}
+          {% if loop.last %}
+          </div>
         {% endif %}
       {% endif %}
       {% endgimmelist %}
         
-{% endcache %}
+{# endcache #}
 
     </div>
 

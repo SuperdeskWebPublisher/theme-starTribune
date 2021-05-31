@@ -4,7 +4,9 @@
 {% set webp400 = false %}
 {% set fallbackJPGsmall = null %}
 {% set fallbackJPGbig = null %}
-{% set mimeType = null %}  
+{% set mimeType = null %}
+{% set imgCaption = null %}
+{% set imgCredit = null %}
 
 {% if article.featureMedia %}
   {% gimme rendition with { 'media': article.featureMedia, 'name': '610x380', 'fallback': '400x240' } %}
@@ -27,11 +29,6 @@
       {% set webp400 = true %}
     {% endif %}
   {% endgimme %}
-
-{% else %}
-    {% set imgCaption = "Tribune theme" %}
-    {% set fallbackJPGsmall = "/public/img/article_img/400x240.jpg" %}
-    {% set fallbackJPGbig = "/public/img/article_img/610x380.jpg" %}
 {% endif %}
 
 <article class="articleGrid__item {{ class }}">
