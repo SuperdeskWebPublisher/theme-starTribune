@@ -42,7 +42,7 @@
                 "type": "collection",
                 "templateName": "page.html.twig",
                 "articlesTemplateName": "page.html.twig",
-                "numberOfArticles": 2
+                "numberOfArticles": 0
             },
             {
                 "name": "Business",
@@ -50,7 +50,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 4
+                "numberOfArticles": 0
             },
             {
                 "name": "Opinion",
@@ -58,7 +58,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 4
+                "numberOfArticles": 0
             },
             {
                 "name": "Politics",
@@ -66,7 +66,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 16
+                "numberOfArticles": 0
             },
             {
                 "name": "Sports",
@@ -74,7 +74,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 4
+                "numberOfArticles": 0
             },
             {
                 "name": "Style",
@@ -82,7 +82,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 4
+                "numberOfArticles": 0
             },
             {
                 "name": "Travel",
@@ -90,7 +90,7 @@
                 "type": "collection",
                 "templateName": "category.html.twig",
                 "articlesTemplateName": "article.html.twig",
-                "numberOfArticles": 4
+                "numberOfArticles": 0
             },
             {
                 "name": "Trending",
@@ -110,11 +110,6 @@
                 "name": "mainNavigation",
                 "label": "Main Navigation",
                 "children": [
-                    {
-                        "name": "home",
-                        "label": "Home",
-                        "route": "homepage"
-                    },
                     {
                         "name": "politics",
                         "label": "Politics",

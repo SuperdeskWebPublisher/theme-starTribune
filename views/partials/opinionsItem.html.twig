@@ -1,11 +1,10 @@
-{% cache 'opinionItem'~class {gen: article} %}
 <article class="opinionsItem {{class}}">
             <a class="opinionsItem__image" href="{{ url(article) }}">
               {% if article.authors %}
 
                 {% for author in article.authors %}
                 <figure>
-                  <img src="{{ author.avatarUrl }}" alt="{{ author.name }}">
+                  <img src="{{ url(author.avatar) }}" alt="{{ author.name }}">
                 </figure>                
                 <span class="opinions__author">by {{ author.name }}</span>
                 {% endfor %}
@@ -18,7 +17,7 @@
 
             </a>
             <a href="{{url(article)}}">
-              <h3 class="opinionsItem__headline">{{article.title}}</h3>
+              <h3 class="opinionsItem__headline">{% include 'partials/ifSecured.html.twig' %}{{article.title}}</h3>
             </a>
             <p class="opinionsItem__text">
                   {% if article.lead is empty %}
@@ -27,4 +26,3 @@
                     {{ article.lead|striptags|safeTruncate(200,"...") }}
                   {%endif%}</p>
           </article>
-{% endcache %}

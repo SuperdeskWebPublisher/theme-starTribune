@@ -9,13 +9,16 @@
 
         <article>
 
-          <h2 class="article__headline marginBottom30">{{ gimme.article.title }}</h2>
+          <h2 class="article__headline marginBottom30">{% if gimme.article.title == "" %}Thank you{% else %}{{ gimme.article.title }}{% endif %}</h2>
 
           <div class="article__text article__text--noMargin marginTop30">
-            <p>{{ gimme.article.lead }}</p>
 
-            <p>{{ gimme.article.body|raw }}</p>
-
+          {% if gimme.article.body == "" %}
+            <p>Thank you for buying subscription to Star Tribune content! We are here to provide best journalism!</p>
+          {% else %}
+            {{ gimme.article.body|raw }}
+          {% endif %}
+          
           </div>
 
         </article>

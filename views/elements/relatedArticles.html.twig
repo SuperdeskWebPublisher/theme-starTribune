@@ -1,0 +1,17 @@
+{% gimmelist relatedArticle from relatedArticles with { article: gimme.article } %}
+	{% if loop.first %}
+<div class="{{ class }}">
+	<h3 class="sectionHeadingBold">Related articles</h3>
+	<div class="related marginBottom30">
+	{% endif %}
+
+		<article class="related__item">
+			<span class="related__info">{{ relatedArticle.article.publishedAt|localizeddate('none', 'none', app.request.locale, null, "d. MMMM yyyy") }}</span>
+			<h4 class="related__headline"><a href="{{ url(relatedArticle.article) }}">{{ relatedArticle.article.title|truncate(64, '...') }}</a></h4>
+		</article>
+
+		{% if loop.last %}
+	</div>
+</div>
+	{% endif %}	
+{% endgimmelist %}

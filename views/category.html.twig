@@ -9,26 +9,56 @@
 
 {% block body %}
 
+  {# Setup list and pagination parameters #}
+  {% set defaultItemsPerPage, itemsPerPage, currentPage = 9, 9, app.request.get('page', 1) %}
+
   <main class="container">
     <div class="row">
 
       <div class="col-md-9 col-sm-12 col-xs-12">
+        {% set CLArticles = [] %}
+        {% set routeCLLength = 0 %}
+        {% gimme contentList with {contentListName: gimme.route.name|capitalize} %}
+        {% gimmelist item from contentListItems with { contentListName: contentList.name } %}
+          {% set article = item.content %}
+          {% set CLArticles = CLArticles|merge([article.id]) %}
+          {% if currentPage == 1 %}
+            {% if loop.first %}
+              {% include 'partials/mainArticleSection.html.twig' with {'class' : ''} %}
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                    <div class="articleGrid row">            
+            {% else %}
+              {% include 'partials/articleGrid__item.html.twig' with {'class' : 'articleGrid__item--threeColumns col-md-4 col-sm-6 col-xs-12'} %}
+            {% endif %}
+          {% endif %}
+        {% endgimmelist %}
+        {% endgimme %}
 
-        {# Setup list and pagination parameters #}
-        {% set defaultItemsPerPage, itemsPerPage, currentPage = 9, 9, app.request.get('page', 1) %}
+        {% set totalArticles = 0 %}
+        {% gimmelist article from articles|limit(1) with {route: gimme.route} %}
+          {% set totalArticles = loop.totalLength %}
+        {% endgimmelist %}
+
+        {% set routeCLLength = CLArticles|length %}
+
+        {% if routeCLLength == totalArticles %}
+          </div>
+        </div>
+        {% endif %}
 
         {% set start = ((currentPage-1) * itemsPerPage) +1 %}
 
         {% if currentPage == 1 %}
-          {% set itemsPerPage = 10 %}
+          {% set itemsPerPage = 10 - routeCLLength %}
           {% set start = 0 %}
         {% endif %}
 
         {# List all articles from current route and limit them to `itemsPerPage` value starting from `start` value #}
 
-        {% gimmelist article from articles|start(start)|limit(itemsPerPage)|order('publishedAt','desc') %}
+        {% gimmelist article from articles|start(start)|limit(itemsPerPage)|order('publishedAt','desc') without {article: CLArticles} %}
 
-        {% if loop.first and currentPage == 1 %}
+        {% if loop.first and currentPage == 1 and routeCLLength == 0 %}
 
           {% include 'partials/mainArticleSection.html.twig' with {'class' : ''} %}
 
@@ -38,7 +68,7 @@
             
           {% else %}
 
-          {% if loop.first %}
+          {% if loop.first and currentPage != 1 %}
 
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
@@ -81,11 +111,14 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-3">
-
     {% include 'elements/most.html.twig' with {'class' : 'marginBottom30'} %}
-    {% container 'frontSidebar' %}
-    {% endcontainer %}
+    <div class="ad hidden-xs marginTop30 marginBottom30">
+      <img src="{{ asset('theme/img/article_img/ad.png') }}">
+    </div>
 
+    <div class="marginTop30 marginBottom30">
+      {% include 'elements/facebook.html.twig' %}
+    </div>
   </div>
 </div>
 
