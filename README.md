@@ -28,8 +28,9 @@ ADJUSTING AND CUSTOMIZING THEME
 **The Tribune** theme comes with predefined functionality which includes:
 - front page with manually created content list on top of the page and per-category listings under it (these per-category listings and built in several different ways to offer wider base for customization)
 - category pages with pagination. Initial category page features one top article.
+- Both category listing widgets on front page and category landing page can benefit if content list with category name is created - then manualy picked articles will be shown in category widget and on top of landing page (the rest is filled with chronologically ordered articles excluding ones already shown via content list).  
 - article page with featured image on top, article content and article gallery under it (image thumbs that open full version in a fancybox)
-- theme also comes with RSS template, static page, search results page and listing of trending articles based on custom criteria (setable in template)
+- theme also comes with RSS template, static page, search results page and listing of trending articles based on the three most used keywords in articles inside the Top articles content list used on front page.
 - Theme has built-in support for Google AMP (accelerated mobile pages). These templates are in subfolder `/amp`. More information on Google AMP project is here: https://www.ampproject.org/
 
 **The Tribune** theme has several customizable properties that can be changed in Publisher's Site Manager:
