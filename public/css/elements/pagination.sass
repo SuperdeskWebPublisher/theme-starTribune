@@ -1,5 +1,4 @@
 .pagination
-  font-family: $fontSansSerif
   display: inline-block
   width: 100%
   margin: 50px 0px
@@ -12,11 +11,12 @@
     list-style: none
     li
       display: inline-block
+      font-weight: 700
       padding: 0px 10px
       &.active
         padding-bottom: 5px
         border-bottom: 3px solid $colorTheme
-        a
+        a, span
           color: $colorTheme
           font-weight: 400
       &.pagination__arrows
