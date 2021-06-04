@@ -18,12 +18,23 @@
     &:hover
       background: #888
     &.active
-      background: #758d99
+      background: $colorTheme
       border-bottom: none
       text-decoration: none
+      &:before
+        content: " "
+        display: block
+        position: absolute
+        bottom: -9px
+        left: 0px
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 9px 9px 0
+        border-color: transparent #007aa3 transparent transparent
 
   .accordion__sectionContent
-    margin: 0px;
+    margin: 0px 10px
     display: none
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
     border-left: 1px solid rgba(0, 0, 0, 0.1)
@@ -35,7 +46,7 @@
     border-bottom: 1px dotted #cccccc
     &:after
       position: absolute
-      top: -35px
+      top: -15px
       right: 10px
       font-size: 10rem
       color: #ededed
@@ -45,14 +56,12 @@
     &:last-child
       border-bottom: none
   .accordion__sectionHeadline
-    @include letterSpacing()
     font-size: 1.8rem
     font-weight: 700
     margin-top: 0px
     margin-bottom: 5px
     &:hover a
-      color: $colorGrey
+      color: $colorTheme
   .accordion__sectionCount
-    font-family: $fontSansSerif
     font-size: 1.4rem
     color: #929292
