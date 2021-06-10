@@ -13,14 +13,15 @@
   {% endif %}
 
   {% gimme contentList with {contentListName: 'Top news'} %}
-    {% cache 'contentListTopnews' { gen: contentList } %}
+    {# cache 'contentListTopnews' { gen: contentList } #}
     
     {% gimmelist item from contentListItems|limit(listLength) with { contentListName: contentList.name } %}
 
     {% if loop.first %}
 
     {% if brNews %}
-    {% include 'partials/breaking-news.html.twig' with { 'article': item.content } %}
+    {# include 'partials/breaking-news.html.twig' with { 'article': item.content } #}
+	{% include 'partials/mainArticle.html.twig' with { 'article': item.content, 'imageClass': 'mainArticle__image' } %}
       <div class="row">
         <div class="col-md-9 col-sm-12 col-xs-12">
           <div class="row">
@@ -48,7 +49,7 @@
       </div>
     {% endif %}
     {% endgimmelist %}
-  {% endcache %}
+  {# endcache #}
   {% endgimme %}
 
           </div>
