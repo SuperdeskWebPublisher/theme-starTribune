@@ -18,9 +18,15 @@ body {
   font-weight: 400;
   color: #333333;
   padding-top: 0px;
-  overflow: auto !important; }
+  overflow: auto !important;
+  overscroll-behavior-y: none; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Source Sans Pro", sans-serif;
   line-height: 120%;
   font-weight: 400; }
@@ -297,7 +303,8 @@ input {
         margin: 0px -60px 30px -60px; } }
     .article .article__entrefilet > *:first-child {
       margin-top: 0px; }
-    .article .article__entrefilet p, .article .article__entrefilet a {
+    .article .article__entrefilet p,
+    .article .article__entrefilet a {
       color: #fff; }
   .article .article__floatLeft {
     float: left;
@@ -663,7 +670,7 @@ input {
     font-size: 1.6rem; }
   .banner h2 {
     font-weight: 700;
-      font-weight-margin-top: 0px; }
+    margin-top: 0px; }
   .banner .banner__image {
     position: absolute;
     right: 0px;
@@ -684,7 +691,8 @@ input {
     font-size: 1.6rem !important;
     margin-bottom: 0px !important; }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: inherit;
   text-decoration: none; }
 
@@ -725,13 +733,17 @@ blockquote {
   font-size: 1.8rem;
   border-left: none; }
 
-blockquote footer, blockquote small, blockquote .small {
+blockquote footer,
+blockquote small,
+blockquote .small {
   display: block;
   font-size: 1.6rem;
   line-height: normal;
   color: #fff; }
 
-blockquote footer:before, blockquote small:before, blockquote .small:before {
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
   display: none; }
 
 @media (min-width: 1280px) {
@@ -814,7 +826,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
   @media (min-width: 769px) {
     .footer {
       padding: 50px 0px; } }
-  .footer a, .footer p {
+  .footer a,
+  .footer p {
     color: #dfdfdf; }
   .footer .footer__logo img {
     max-width: 221px; }
@@ -858,15 +871,18 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       width: 36%;
       height: 42px;
       padding: 11px 20px; }
-  .footer .footer__text a, .footer .footer__text p {
+  .footer .footer__text a,
+  .footer .footer__text p {
     font-size: 1.4rem;
     text-align: left; }
     @media (min-width: 769px) {
-      .footer .footer__text a, .footer .footer__text p {
+      .footer .footer__text a,
+      .footer .footer__text p {
         text-align: right; } }
 
 @media (min-width: 769px) {
-  .gallery p, .gallery a {
+  .gallery p,
+  .gallery a {
     color: #fff; } }
 
 .gallery .gallery__image {
@@ -999,9 +1015,11 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
     .header .header__search td.gsc-search-button {
       background: url("../img/search.svg") no-repeat center;
       width: 27px; }
-    .header .header__search .cse input.gsc-search-button, .header .header__search input.gsc-search-button {
+    .header .header__search .cse input.gsc-search-button,
+    .header .header__search input.gsc-search-button {
       height: 27px; }
-    .header .header__search .cse input.gsc-search-button:hover, .header .header__search input.gsc-search-button:hover {
+    .header .header__search .cse input.gsc-search-button:hover,
+    .header .header__search input.gsc-search-button:hover {
       background: none; }
     .header .header__search .gsc-input-box-focus {
       box-shadow: none; }
@@ -1072,7 +1090,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       border-bottom: none;
       padding-bottom: 0px; } }
   @media (min-width: 769px) {
-    .mainArticleList p, .mainArticleList a {
+    .mainArticleList p,
+    .mainArticleList a {
       color: #fff; } }
   .mainArticleList .mainArticleList__image {
     padding-bottom: 51%;
@@ -1130,7 +1149,7 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
   .mainArticleList .mainArticleList__headline {
     letter-spacing: 0.2px;
     font-size: 2.8rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 12px 0px; }
     .mainArticleList .mainArticleList__headline--small {
       font-size: 3.2rem; }
@@ -1144,12 +1163,15 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
     @media (min-width: 769px) {
       .modalUser label {
         flex: 1 0 30%; } }
-  .modalUser input, .modalUser textarea {
+  .modalUser input,
+  .modalUser textarea {
     flex: 1 0 100%; }
     @media (min-width: 769px) {
-      .modalUser input, .modalUser textarea {
+      .modalUser input,
+      .modalUser textarea {
         flex: 1 0 70%; } }
-    .modalUser input[type="submit"], .modalUser textarea[type="submit"] {
+    .modalUser input[type="submit"],
+    .modalUser textarea[type="submit"] {
       flex: 0 0 33%;
       width: auto; }
 
@@ -1324,7 +1346,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       .pagination ul li.active {
         padding-bottom: 5px;
         border-bottom: 3px solid #00A9E1; }
-        .pagination ul li.active a, .pagination ul li.active span {
+        .pagination ul li.active a,
+        .pagination ul li.active span {
           color: #00A9E1;
           font-weight: 400; }
       .pagination ul li.pagination__arrows {
@@ -1420,7 +1443,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
 .topBar {
   font-size: 1.4rem;
   color: #333333; }
-  .topBar p, .topBar a {
+  .topBar p,
+  .topBar a {
     color: #333333;
     font-weight: 400;
     letter-spacing: 0.2px; }

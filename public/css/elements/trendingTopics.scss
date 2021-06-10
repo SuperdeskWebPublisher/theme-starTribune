@@ -1,0 +1,28 @@
+.trendingTopics {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 20px 0px 25px 0px;
+    &.trendingTopics__items {
+      li:first-child {
+        padding: 8px 18px;
+        background: #E9535F;
+        color: $colorWhite;
+      }
+    }
+    li {
+      font-size: 1.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-right: 10px;
+      @include sm {
+        margin-right: 40px;
+      }
+      a:hover {
+        color: $colorTheme;
+      }
+    }
+  }
+}
