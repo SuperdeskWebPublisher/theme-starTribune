@@ -50,8 +50,8 @@
   {% endif %}
 
 
-
-  <figure class="mainArticleList__image {% if image =='small' %}mainArticleList__image--small{% endif %} ">
+{% if imageClass == '' %}{% set imageClass = 'mainArticleList__image' %}{% endif %}
+  <figure class="{{ imageClass }} {% if image =='small' %}{{ imageClass }}--small{% endif %} ">
     <a href="{{ url(article) }}">
     <picture>
       {% if image=='small' %}
