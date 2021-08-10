@@ -152,17 +152,20 @@ input {
     font-size: 2rem;
     position: relative;
     width: 100%;
-    padding: 17px;
+    padding: 17px 17px 17px 57px;
     display: inline-block;
-    background: #777777;
+    background: #777777 url("../img/accordion_close.svg") 20px no-repeat;
+    background-size: 24px;
     border-bottom: 1px solid #fff;
     transition: all linear 0.15s; }
     .accordion .accordion__sectionTitle:hover {
-      background: #888; }
+      background: #888 url("../img/accordion_close.svg") 20px no-repeat;
+      background-size: 24px; }
     .accordion .accordion__sectionTitle.active {
-      background: #00A9E1;
       border-bottom: none;
-      text-decoration: none; }
+      text-decoration: none;
+      background: #00A9E1 url("../img/accordion_open.svg") 20px no-repeat;
+      background-size: 24px; }
       .accordion .accordion__sectionTitle.active:before {
         content: " ";
         display: block;
@@ -926,67 +929,25 @@ blockquote .small:before {
 
 .header {
   font-size: 0;
-  margin: 0px 0px 20px 0px; }
-  @media (min-width: 769px) {
-    .header {
-      margin: 20px 0px 40px 0px; } }
-  .header .header__weather {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1.4rem;
-    margin: 10px 0px;
-    display: flex;
-    align-items: center; }
-    .header .header__weather img {
-      height: 25px;
-      margin-right: 15px;
-      opacity: 0.6;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: -webkit-optimize-contrast;
-      -ms-interpolation-mode: nearest-neighbor; }
-  .header .header__weather__info {
-    margin: 0px 10px; }
-    .header .header__weather__info br {
-      display: none; }
-      @media (min-width: 769px) {
-        .header .header__weather__info br {
-          display: block; } }
-  .header .weather-temperature {
-    font-size: 1.15em;
-    font-weight: 200; }
-    @media (min-width: 769px) {
-      .header .weather-temperature {
-        font-size: 3.5em; } }
-  .header .weather-place {
-    font-size: 1.15em; }
-  .header .weather-description {
-    font-size: 1.15em;
-    text-transform: capitalize; }
+  margin: 40px 0px; }
   .header .header__logo {
     display: block;
     font-size: 1.8rem;
-    text-align: center;
-    margin: 10px 0px; }
+    text-align: center; }
     @media (min-width: 769px) {
       .header .header__logo {
-        margin: 0px; } }
+        text-align: left; } }
     .header .header__logo img {
-      width: 100%;
-      max-width: 333px; }
-    .header .header__logo--section {
-      max-width: 170px;
-      margin: 0 auto !important; }
-  .header .header__sectionName {
-    font-family: "Merriweather", serif;
-    font-size: 4rem;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 0px; }
+      max-width: 400px; }
   .header .header__search {
     font-family: "Merriweather", serif;
     font-size: 3.6rem;
     text-align: right;
-    font-style: italic; }
+    font-style: italic;
+    margin-top: 10px; }
+    @media (min-width: 769px) {
+      .header .header__search {
+        margin-top: 0px; } }
     .header .header__search input {
       max-width: 270px;
       text-align: right;
@@ -1015,11 +976,9 @@ blockquote .small:before {
     .header .header__search td.gsc-search-button {
       background: url("../img/search.svg") no-repeat center;
       width: 27px; }
-    .header .header__search .cse input.gsc-search-button,
-    .header .header__search input.gsc-search-button {
+    .header .header__search .cse input.gsc-search-button, .header .header__search input.gsc-search-button {
       height: 27px; }
-    .header .header__search .cse input.gsc-search-button:hover,
-    .header .header__search input.gsc-search-button:hover {
+    .header .header__search .cse input.gsc-search-button:hover, .header .header__search input.gsc-search-button:hover {
       background: none; }
     .header .header__search .gsc-input-box-focus {
       box-shadow: none; }
@@ -1462,33 +1421,32 @@ blockquote .small:before {
 
 .topBar {
   font-size: 1.4rem;
-  color: #333333; }
-  .topBar p,
-  .topBar a {
-    color: #333333;
+  background: #333333;
+  color: #fff; }
+  .topBar p, .topBar a {
+    color: #fff;
     font-weight: 400;
     letter-spacing: 0.2px; }
-  .topBar .topBar__links {
-    display: none; }
-    @media (min-width: 769px) {
-      .topBar .topBar__links {
-        display: block; } }
-    .topBar .topBar__links ul {
-      text-align: left;
-      list-style: none;
-      margin: 11px 0px;
-      padding-left: 0px; }
-      .topBar .topBar__links ul li {
-        display: inline-block;
-        padding-right: 10px; }
+  .topBar .topBar__weather p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.4rem;
+    margin: 10px 0px; }
+    .topBar .topBar__weather p img {
+      height: 25px;
+      margin-right: 15px; }
+  .topBar .topBar__links ul {
+    text-align: right;
+    list-style: none;
+    margin: 12px 0px;
+    padding-left: 0px; }
+    .topBar .topBar__links ul li {
+      display: inline-block;
+      padding-left: 10px; }
   .topBar .topBar__social ul {
-    text-align: left;
+    text-align: right;
     list-style: none;
     margin: 10px 0px;
     padding-left: 0px; }
-    @media (min-width: 769px) {
-      .topBar .topBar__social ul {
-        text-align: right; } }
     .topBar .topBar__social ul li {
       display: inline-block;
       padding-left: 5px; }
