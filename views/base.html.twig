@@ -117,11 +117,11 @@
     <div class="container">
       <div class="row">
 
-        <div class="topBar__weather col-sm-3 col-md-3 col-xs-12 pull-left">
+        <div class="topBar__weather col-sm-3 col-md-3 col-xs-12">
           <p><img src="" class="weather-icon" alt="Weather Icon" /><span class="weather-temperature"></span>, <span class="weather-place"></span></p>
         </div>
 
-        <div class="topBar__links col-sm-6 col-md-8 col-xs-12">
+        <div class="topBar__links col-sm-6 col-md-6 col-xs-5 hidden-xs">
           <ul class="pull-left">
             {% gimmelist article from articles|start(0)|limit(5) with {'route' : '/about' } %}
             <li><a href="{{ url(article) }}">{{ article.title }}</a></li>
@@ -141,7 +141,7 @@
           </ul>
         </div>
 
-          <div class="topBar__social col-sm-3 col-md-4 col-xs-12 pull-right">
+          <div class="topBar__social col-sm-3 col-md-3 col-xs-6 hidden-xs">
             <ul>
               <li><a href="https://www.facebook.com/Superdesk/"><img src="{{ asset('theme/img/social-fb.svg') }}"></a></li>
               <li><a href="https://twitter.com/Sourcefabric"><img src="{{ asset('theme/img/social-tw.svg') }}"></a></li>
@@ -161,12 +161,12 @@
       <div class="row">
 
         {% block logo %}
-        <div class="verticalMiddle col-md-4 col-sm-4 col-xs-12">
+        <div class="verticalMiddle col-md-5 col-sm-5 col-xs-12">
           <a class="header__logo" href="/"><img src="{{ themeLogo(asset('/public/img/logo.png')) }}"></a>
         </div>
         {% endblock %}
 
-        <div class="header__search verticalMiddle col-sm-4 col-md-4 col-xs-12">
+        <div class="header__search verticalMiddle col-sm-7 col-md-7 col-xs-12">
 
           <!--form id="search" name="search_articles" method="GET" action="/search">
             <input type="text" name="q" placeholder="search" value="">

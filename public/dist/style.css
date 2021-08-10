@@ -18,9 +18,15 @@ body {
   font-weight: 400;
   color: #333333;
   padding-top: 0px;
-  overflow: auto !important; }
+  overflow: auto !important;
+  overscroll-behavior-y: none; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Source Sans Pro", sans-serif;
   line-height: 120%;
   font-weight: 400; }
@@ -146,17 +152,20 @@ input {
     font-size: 2rem;
     position: relative;
     width: 100%;
-    padding: 17px;
+    padding: 17px 17px 17px 57px;
     display: inline-block;
-    background: #777777;
+    background: #777777 url("../img/accordion_close.svg") 20px no-repeat;
+    background-size: 24px;
     border-bottom: 1px solid #fff;
     transition: all linear 0.15s; }
     .accordion .accordion__sectionTitle:hover {
-      background: #888; }
+      background: #888 url("../img/accordion_close.svg") 20px no-repeat;
+      background-size: 24px; }
     .accordion .accordion__sectionTitle.active {
-      background: #00A9E1;
       border-bottom: none;
-      text-decoration: none; }
+      text-decoration: none;
+      background: #00A9E1 url("../img/accordion_open.svg") 20px no-repeat;
+      background-size: 24px; }
       .accordion .accordion__sectionTitle.active:before {
         content: " ";
         display: block;
@@ -297,7 +306,8 @@ input {
         margin: 0px -60px 30px -60px; } }
     .article .article__entrefilet > *:first-child {
       margin-top: 0px; }
-    .article .article__entrefilet p, .article .article__entrefilet a {
+    .article .article__entrefilet p,
+    .article .article__entrefilet a {
       color: #fff; }
   .article .article__floatLeft {
     float: left;
@@ -663,7 +673,7 @@ input {
     font-size: 1.6rem; }
   .banner h2 {
     font-weight: 700;
-      font-weight-margin-top: 0px; }
+    margin-top: 0px; }
   .banner .banner__image {
     position: absolute;
     right: 0px;
@@ -684,7 +694,8 @@ input {
     font-size: 1.6rem !important;
     margin-bottom: 0px !important; }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: inherit;
   text-decoration: none; }
 
@@ -725,13 +736,17 @@ blockquote {
   font-size: 1.8rem;
   border-left: none; }
 
-blockquote footer, blockquote small, blockquote .small {
+blockquote footer,
+blockquote small,
+blockquote .small {
   display: block;
   font-size: 1.6rem;
   line-height: normal;
   color: #fff; }
 
-blockquote footer:before, blockquote small:before, blockquote .small:before {
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
   display: none; }
 
 @media (min-width: 1280px) {
@@ -814,7 +829,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
   @media (min-width: 769px) {
     .footer {
       padding: 50px 0px; } }
-  .footer a, .footer p {
+  .footer a,
+  .footer p {
     color: #dfdfdf; }
   .footer .footer__logo img {
     max-width: 221px; }
@@ -858,15 +874,18 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       width: 36%;
       height: 42px;
       padding: 11px 20px; }
-  .footer .footer__text a, .footer .footer__text p {
+  .footer .footer__text a,
+  .footer .footer__text p {
     font-size: 1.4rem;
     text-align: left; }
     @media (min-width: 769px) {
-      .footer .footer__text a, .footer .footer__text p {
+      .footer .footer__text a,
+      .footer .footer__text p {
         text-align: right; } }
 
 @media (min-width: 769px) {
-  .gallery p, .gallery a {
+  .gallery p,
+  .gallery a {
     color: #fff; } }
 
 .gallery .gallery__image {
@@ -910,67 +929,25 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
 
 .header {
   font-size: 0;
-  margin: 0px 0px 20px 0px; }
-  @media (min-width: 769px) {
-    .header {
-      margin: 20px 0px 40px 0px; } }
-  .header .header__weather {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1.4rem;
-    margin: 10px 0px;
-    display: flex;
-    align-items: center; }
-    .header .header__weather img {
-      height: 25px;
-      margin-right: 15px;
-      opacity: 0.6;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: -webkit-optimize-contrast;
-      -ms-interpolation-mode: nearest-neighbor; }
-  .header .header__weather__info {
-    margin: 0px 10px; }
-    .header .header__weather__info br {
-      display: none; }
-      @media (min-width: 769px) {
-        .header .header__weather__info br {
-          display: block; } }
-  .header .weather-temperature {
-    font-size: 1.15em;
-    font-weight: 200; }
-    @media (min-width: 769px) {
-      .header .weather-temperature {
-        font-size: 3.5em; } }
-  .header .weather-place {
-    font-size: 1.15em; }
-  .header .weather-description {
-    font-size: 1.15em;
-    text-transform: capitalize; }
+  margin: 40px 0px; }
   .header .header__logo {
     display: block;
     font-size: 1.8rem;
-    text-align: center;
-    margin: 10px 0px; }
+    text-align: center; }
     @media (min-width: 769px) {
       .header .header__logo {
-        margin: 0px; } }
+        text-align: left; } }
     .header .header__logo img {
-      width: 100%;
-      max-width: 333px; }
-    .header .header__logo--section {
-      max-width: 170px;
-      margin: 0 auto !important; }
-  .header .header__sectionName {
-    font-family: "Merriweather", serif;
-    font-size: 4rem;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 0px; }
+      max-width: 400px; }
   .header .header__search {
     font-family: "Merriweather", serif;
     font-size: 3.6rem;
     text-align: right;
-    font-style: italic; }
+    font-style: italic;
+    margin-top: 10px; }
+    @media (min-width: 769px) {
+      .header .header__search {
+        margin-top: 0px; } }
     .header .header__search input {
       max-width: 270px;
       text-align: right;
@@ -1008,6 +985,7 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
 
 .mainArticle {
   position: relative;
+  color: #fff;
   margin-bottom: 20px;
   border-bottom: 1px dotted #cccccc;
   padding-bottom: 20px; }
@@ -1016,47 +994,66 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       margin-bottom: 30px;
       border-bottom: none;
       padding-bottom: 0px; } }
-  .mainArticle--section {
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column-reverse; }
-    @media only screen and (min-width: 768px) {
-      .mainArticle--section {
-        display: block; } }
+  @media (min-width: 769px) {
+    .mainArticle p,
+    .mainArticle a {
+      color: #fff; } }
   .mainArticle .mainArticle__image {
+    padding-bottom: 51%;
     z-index: 1;
+    height: 0px;
     margin: 0px -15px; }
     @media (min-width: 769px) {
       .mainArticle .mainArticle__image {
+        padding-bottom: 48.4%;
         margin: 0px; } }
+    .mainArticle .mainArticle__image--small {
+      padding-bottom: 65.1%; }
+      @media (min-width: 769px) {
+        .mainArticle .mainArticle__image--small {
+          padding-bottom: 62.3%; } }
     .mainArticle .mainArticle__image img {
       width: 100%;
       height: auto; }
     .mainArticle .mainArticle__image a {
       position: relative;
       display: block; }
+      .mainArticle .mainArticle__image a:after {
+        background-image: linear-gradient(0deg, rgba(0, 15, 20, 0.6) 15%, rgba(0, 15, 20, 0.15) 52%, rgba(0, 15, 20, 0) 70%);
+        display: none;
+        content: " ";
+        height: 240px;
+        width: 100%;
+        position: absolute;
+        bottom: 0px; }
+        @media (min-width: 769px) {
+          .mainArticle .mainArticle__image a:after {
+            display: block; } }
   .mainArticle .mainArticle__text {
     font-size: 1.6rem; }
     @media (min-width: 769px) {
       .mainArticle .mainArticle__text {
-        max-width: 690px; } }
+        position: absolute;
+        left: 55px;
+        right: 35px;
+        bottom: 30px;
+        max-width: 690px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); } }
   .mainArticle .mainArticle__kicker {
-    font-family: "Source Sans Pro", sans-serif;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 900;
     color: #ea545f;
     display: block;
     text-transform: uppercase;
-    margin-top: 10px; }
-    .mainArticle .mainArticle__kicker--section {
-      margin-top: 0px; }
+    margin-top: 20px; }
+    @media (min-width: 769px) {
+      .mainArticle .mainArticle__kicker {
+        color: #fff;
+        margin-top: 0px; } }
   .mainArticle .mainArticle__headline {
-    letter-spacing: 0.2px;
-    font-size: 3.2rem;
-    font-weight: 700;
-    margin: 10px 0px; }
-    .mainArticle .mainArticle__headline:hover {
-      color: #547688; }
+    font-size: 3.9rem;
+    font-weight: 900;
+    margin: 12px 0px; }
     .mainArticle .mainArticle__headline--small {
       font-size: 3.2rem; }
 
@@ -1072,7 +1069,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       border-bottom: none;
       padding-bottom: 0px; } }
   @media (min-width: 769px) {
-    .mainArticleList p, .mainArticleList a {
+    .mainArticleList p,
+    .mainArticleList a {
       color: #fff; } }
   .mainArticleList .mainArticleList__image {
     padding-bottom: 51%;
@@ -1130,7 +1128,7 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
   .mainArticleList .mainArticleList__headline {
     letter-spacing: 0.2px;
     font-size: 2.8rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 12px 0px; }
     .mainArticleList .mainArticleList__headline--small {
       font-size: 3.2rem; }
@@ -1144,12 +1142,15 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
     @media (min-width: 769px) {
       .modalUser label {
         flex: 1 0 30%; } }
-  .modalUser input, .modalUser textarea {
+  .modalUser input,
+  .modalUser textarea {
     flex: 1 0 100%; }
     @media (min-width: 769px) {
-      .modalUser input, .modalUser textarea {
+      .modalUser input,
+      .modalUser textarea {
         flex: 1 0 70%; } }
-    .modalUser input[type="submit"], .modalUser textarea[type="submit"] {
+    .modalUser input[type="submit"],
+    .modalUser textarea[type="submit"] {
       flex: 0 0 33%;
       width: auto; }
 
@@ -1324,7 +1325,8 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
       .pagination ul li.active {
         padding-bottom: 5px;
         border-bottom: 3px solid #00A9E1; }
-        .pagination ul li.active a, .pagination ul li.active span {
+        .pagination ul li.active a,
+        .pagination ul li.active span {
           color: #00A9E1;
           font-weight: 400; }
       .pagination ul li.pagination__arrows {
@@ -1419,32 +1421,32 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {
 
 .topBar {
   font-size: 1.4rem;
-  color: #333333; }
+  background: #333333;
+  color: #fff; }
   .topBar p, .topBar a {
-    color: #333333;
+    color: #fff;
     font-weight: 400;
     letter-spacing: 0.2px; }
-  .topBar .topBar__links {
-    display: none; }
-    @media (min-width: 769px) {
-      .topBar .topBar__links {
-        display: block; } }
-    .topBar .topBar__links ul {
-      text-align: left;
-      list-style: none;
-      margin: 11px 0px;
-      padding-left: 0px; }
-      .topBar .topBar__links ul li {
-        display: inline-block;
-        padding-right: 10px; }
+  .topBar .topBar__weather p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.4rem;
+    margin: 10px 0px; }
+    .topBar .topBar__weather p img {
+      height: 25px;
+      margin-right: 15px; }
+  .topBar .topBar__links ul {
+    text-align: right;
+    list-style: none;
+    margin: 12px 0px;
+    padding-left: 0px; }
+    .topBar .topBar__links ul li {
+      display: inline-block;
+      padding-left: 10px; }
   .topBar .topBar__social ul {
-    text-align: left;
+    text-align: right;
     list-style: none;
     margin: 10px 0px;
     padding-left: 0px; }
-    @media (min-width: 769px) {
-      .topBar .topBar__social ul {
-        text-align: right; } }
     .topBar .topBar__social ul li {
       display: inline-block;
       padding-left: 5px; }
