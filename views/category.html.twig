@@ -24,7 +24,7 @@
           {% set CLArticles = CLArticles|merge([article.id]) %}
           {% if currentPage == 1 %}
             {% if loop.first %}
-              {% include 'partials/mainArticleSection.html.twig' with {'class' : ''} %}
+              {% include 'partials/mainArticle.html.twig' with {'class' : 'mainArticle__image'} %}
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
                     <div class="articleGrid row">            
@@ -60,7 +60,7 @@
 
         {% if loop.first and currentPage == 1 and routeCLLength == 0 %}
 
-          {% include 'partials/mainArticleSection.html.twig' with {'class' : ''} %}
+          {% include 'partials/mainArticle.html.twig' with {'class' : 'mainArticle__image'} %}
 
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
