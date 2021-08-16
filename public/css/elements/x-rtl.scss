@@ -1,0 +1,56 @@
+html[dir='rtl'] {
+  .topBar {
+    .topBar__social ul {
+      text-align: left;
+      li {
+        padding-left: 0px;
+        padding-right: 5px;
+      }
+    }
+    .topBar__weather p img {
+      margin-right: 0px;
+      margin-left: 15px;
+  }
+  }
+  .header {
+    .header__logo {
+      text-align: right;
+    }
+  }
+  .navigation {
+    ul {
+      padding-right: 0;
+      li {
+        margin-right: 0px;
+        margin-left: 15px;
+        @include sm {
+          margin-right: 0px;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+  .trendingTopics {
+    ul {
+      padding-right: 0;
+      li {
+        margin-right: 0px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .okayNav__menu-toggle {
+    right: auto;
+    left: 0;
+    float: right;
+  }
+
+  .okayNav__nav--invisible.nav-open li {
+    margin-left: 0px !important;
+  }
+
+  .okayNav__nav--invisible.transition-enabled {
+    right: auto;
+    left: 0;
+  }
+}

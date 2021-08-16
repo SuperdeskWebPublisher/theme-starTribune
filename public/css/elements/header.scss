@@ -37,8 +37,11 @@
       width: 27px;
       height: 27px;
       border: none;
-      text-indent: -9999px;
+      // text-indent: -9999px;
       vertical-align: sub;
+      svg {
+        display: none;
+      }
     }
     .gsc-search-box-tools .gsc-search-box input.gsc-input {
       background-size: 0px !important;
