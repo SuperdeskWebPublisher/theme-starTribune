@@ -33,8 +33,9 @@
   blockquote {
     position: relative;
     font-style: italic;
-    margin: 0px;
     font-weight: 300;
+    margin: 0px;
+    border-right: none;
     z-index: 2;
   }
   .editorialComment__name {

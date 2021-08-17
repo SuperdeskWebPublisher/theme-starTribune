@@ -76,7 +76,7 @@
     margin-right: 20px;
     margin-bottom: 0px;
     &:after {
-      display: none;
+      display: none !important;
     }
     figure {
       width: 70px;

@@ -35,6 +35,7 @@
     position: relative;
     display: block;
     margin-right: 20px;
+    margin-bottom: 10px;
     width: 90px;
     float: left;
     @include sm {
@@ -54,15 +55,15 @@
       height: auto;
     }
   }
-  .articleGrid__item:first-child {
-    .articleGrid__image {
-      width: 100%;
-      margin-bottom: 20px;
-      @include sm {
-        margin-bottom: 0px;
-      }
-    }
-  }
+  // .articleGrid__item:first-child {
+  //   .articleGrid__image {
+  //     width: 100%;
+  //     margin-bottom: 20px;
+  //     @include sm {
+  //       margin-bottom: 0px;
+  //     }
+  //   }
+  // }
   .articleGrid__icon {
     position: absolute;
     top: 5px;
@@ -77,7 +78,6 @@
     color: #ea545f;
     text-transform: uppercase;
     font-weight: 600;
-    display: block;
     margin: 0px 0px 5px 0px;
     @include sm {
       margin: 15px 0px 5px 0px;
