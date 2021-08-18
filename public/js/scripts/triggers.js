@@ -197,6 +197,7 @@ $('#topics').okayNav();
 
     var gallery = $('#imageGallery').lightSlider({
         gallery: true,
+        rtl: true,
         item: 1,
         loop: true,
         thumbItem: 12,
