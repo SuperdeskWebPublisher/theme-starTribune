@@ -287,4 +287,38 @@ html[dir='rtl'] {
     }
   }
 
+  .footer {
+    .footer__section {
+      ul {
+        padding-left: 0px;
+        padding-right: 0px;
+        li {
+          margin-right: 0px;
+          margin-left: 20px;
+          @include sm {
+            margin-right: auto;
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+    .footer__subscribeForm {
+      input {
+        float: right;
+      }
+      button {
+        float: right;
+      }
+    }
+    .footer__text {
+      a,
+      p {
+        text-align: right;
+        @include sm {
+          text-align: left;
+        }
+      }
+    }
+  }
+
 }
