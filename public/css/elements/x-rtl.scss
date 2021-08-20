@@ -79,12 +79,6 @@ html[dir='rtl'] {
     }
   }
 
-
-
-
-
-
-
   .articleGrid {
     .articleGrid__item {
       @include mobileBorder();
@@ -149,6 +143,14 @@ html[dir='rtl'] {
       @include lg {
         float: right;
       }
+    }
+  }
+
+  .banner {
+    .banner__image {
+      right: auto;
+      left: 0px;
+      bottom: 0px;
     }
   }
 
