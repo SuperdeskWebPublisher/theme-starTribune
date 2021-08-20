@@ -156,24 +156,16 @@
 
 {# cache 'articleMoreFromSection' { gen: gimme.article } #}
       
-      {% gimmelist article from articles|start(0)|limit(4)|order('publishedAt','desc') without {article: [currArt]} %}
-      
-      {% if loop.index == 1 %}
-        <div class="articleGrid col-md-6 col-sm-6 col-xs-12">
-          {% include 'partials/articleGrid__item.html.twig' with {'class' : 'articleGrid__item--fourColumns'} %}
-        </div>
-      {% else %}
-        {% if loop.index == 2 %}    
-          <div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
-          {% endif %}
-          {% if loop.index in [2,3,4] %}
-            {% include 'partials/articleListSmall__item.html.twig' %}
-          {% endif %}
-          {% if loop.last %}
-          </div>
-        {% endif %}
-      {% endif %}
-      {% endgimmelist %}
+	<div class="articleGrid col-md-6 col-sm-6 col-xs-12">
+		{% gimmelist article from articles|start(0)|limit(1)|order('publishedAt','desc')  without {article: [currArt]} %}
+				{% include 'partials/articleGrid__item.html.twig' with {'class' : 'articleGrid__item--fourColumns'} %}
+		{% endgimmelist %}
+	</div>
+	<div class="articleListSmall col-md-6 col-sm-6 col-xs-12">
+		{% gimmelist article from articles|start(1)|limit(3) without {article: [currArt]} %}
+				{% include 'partials/articleListSmall__item.html.twig'  %}
+		{% endgimmelist %}
+	</div>
         
 {# endcache #}
 
