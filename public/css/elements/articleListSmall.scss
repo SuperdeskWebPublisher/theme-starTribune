@@ -4,6 +4,7 @@
     @include mobileBorder();
   }
   .articleListSmall__image {
+    width: 90px;
     float: left;
     margin-right: 20px;
   }
@@ -55,4 +56,8 @@
       margin-top: 0px;
     }
   }
+}
+
+.article .articleListSmall figure img {
+
 }
