@@ -17,10 +17,27 @@
       }
     }
   }
+  .articleMetadata__auth {
+    display: inline-flex;
+    align-items: baseline;
+    margin-right: 15px;
+    .articleMetadata__auth__img {
+      border-radius: 100%;
+      margin-right: 15px;
+      overflow: hidden;
+      img {
+        width: 50px;
+        @include sm {
+          width: 70px;
+        }
+      }
+    }
+  }
   .articleMetadata__info {
     color: #929292;
     margin: 0px 10px;
     position: relative;
+    white-space: nowrap;
     &--white {
       @include sm {
         color: $colorWhite;
