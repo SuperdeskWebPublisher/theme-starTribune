@@ -610,6 +610,7 @@ input {
           .articleMetadata .articleMetadata__auth .articleMetadata__auth__img img {
             width: 70px; } }
   .articleMetadata .articleMetadata__info {
+    display: inline-block;
     color: #929292;
     margin: 0px 10px;
     position: relative;
