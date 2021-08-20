@@ -913,6 +913,19 @@ blockquote .small:before {
 .gallery .gallery__image {
   padding-bottom: 48%;
   height: 0px; }
+  .gallery .gallery__image:after {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(15%, rgba(0, 15, 20, 0.6)), color-stop(52%, rgba(0, 15, 20, 0.15)), color-stop(70%, rgba(0, 15, 20, 0)));
+    background-image: linear-gradient(0deg, rgba(0, 15, 20, 0.6) 15%, rgba(0, 15, 20, 0.15) 52%, rgba(0, 15, 20, 0) 70%);
+    display: none;
+    content: " ";
+    height: 240px;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px; }
+    @media (min-width: 769px) {
+      .gallery .gallery__image:after {
+        display: block; } }
 
 .gallery .gallery__strip {
   font-size: 1.7rem;
@@ -1029,6 +1042,9 @@ blockquote .small:before {
       .mainArticle .mainArticle__image {
         padding-bottom: 48.4%;
         margin: 0px; } }
+    @media (max-width: 680px) {
+      .mainArticle .mainArticle__image {
+        padding-bottom: 65.1%; } }
     .mainArticle .mainArticle__image--small {
       padding-bottom: 65.1%; }
       @media (min-width: 769px) {
@@ -1053,6 +1069,11 @@ blockquote .small:before {
             display: block; } }
   .mainArticle .mainArticle__text {
     font-size: 1.6rem; }
+    .mainArticle .mainArticle__text a {
+      color: #333333; }
+      @media (min-width: 769px) {
+        .mainArticle .mainArticle__text a {
+          color: #fff; } }
     @media (min-width: 769px) {
       .mainArticle .mainArticle__text {
         position: absolute;

@@ -8,6 +8,22 @@
   .gallery__image {
     padding-bottom: 48%;
     height: 0px;
+    &:after {
+      background-image: -webkit-gradient(linear,left bottom,left top,color-stop(15%,rgba(0,15,20,.6)),color-stop(52%,rgba(0,15,20,.15)),color-stop(70%,rgba(0,15,20,0)));
+      background-image: linear-gradient(
+      0deg
+      ,rgba(0,15,20,.6) 15%,rgba(0,15,20,.15) 52%,rgba(0,15,20,0) 70%);
+      display: none;
+      content: " ";
+      height: 240px;
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      right: 15px;
+      @include sm {
+        display: block;
+      }
+    }
   }
   .gallery__strip {
     font-size: 1.7rem;

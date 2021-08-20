@@ -24,6 +24,9 @@
       padding-bottom: 48.4%;
       margin: 0px;
     }
+    @media (max-width: 680px) {
+      padding-bottom: 65.1%;
+    }
     &--small {
       padding-bottom: 65.1%;
       @include sm {
@@ -52,6 +55,12 @@
     }
   }
   .mainArticle__text {
+    a {
+      color: $colorDark;
+      @include sm {
+        color: $colorWhite;
+      }
+    }
     font-size: 1.6rem;
     @include sm {
       position: absolute;
