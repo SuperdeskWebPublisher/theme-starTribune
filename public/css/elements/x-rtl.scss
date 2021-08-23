@@ -38,8 +38,12 @@ html[dir='rtl'] {
     ul {
       padding-right: 0;
       li {
-        margin-right: 0px;
+        margin-right: auto;
         margin-left: 10px;
+        @include sm {
+          margin-right: auto;
+          margin-left: 40px;
+        }
       }
     }
   }
