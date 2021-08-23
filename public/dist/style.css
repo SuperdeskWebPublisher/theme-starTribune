@@ -1031,6 +1031,23 @@ blockquote .small:before {
     .header .header__search .gsc-input-box-focus {
       box-shadow: none; }
 
+.lSAction > a {
+  background-size: cover;
+  border-bottom: none !important; }
+
+.lSAction > .lSPrev {
+  background-image: url(../img/prev.png); }
+
+.lSAction > .lSNext {
+  background-image: url(../img/next.png); }
+
+.lSSlideOuter .lSPager.lSGallery li, .lSSlideOuter .lSPager.lSGallery li:hover {
+  border: 1px solid transparent;
+  border-radius: 0px !important; }
+
+.lSSlideOuter .lSPager.lSGallery li.active {
+  border: 1px solid #00A9E1; }
+
 .mainArticle {
   position: relative;
   color: #fff;

@@ -78,7 +78,7 @@
   {% endif %}
 
   {% if rend400 != null %}
-      <figure>
+      <figure class="article__image">
          <picture>
            {% if webp400 %}<source media="(max-width: 680px)" srcset="{{ rend400 }}" type="image/webp">{% endif %}                 
            <source media="(max-width: 680px)" srcset="{{ fallbackJPGsmall }}" type="{{ mimeType }}">
