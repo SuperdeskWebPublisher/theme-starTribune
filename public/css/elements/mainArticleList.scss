@@ -52,6 +52,12 @@
     }
   }
   .mainArticleList__text {
+    a {
+      color: $colorDark;
+      @include sm {
+        color: $colorWhite;
+      }
+    }
     font-size: 1.6rem;
     @include sm {
       position: absolute;
