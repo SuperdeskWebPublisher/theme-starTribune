@@ -72,6 +72,31 @@ html[dir='rtl'] {
     }
   }
 
+  .article {
+    blockquote {
+      &:after {
+        right: auto;
+        left: 0px;
+      }
+    }
+    .article__image {
+      figcaption {
+        &:before {
+          margin-right: auto;
+          margin-left: 10px;
+          background: url("../img/camera.png");
+        }
+      }
+    }
+    .article__keywords {
+      li {
+        float: right;
+        margin-right: auto;
+        margin-left: 10px;
+      }
+    }
+  }
+
   .articleMetadata {
     .articleMetadata__byline {
       margin-right: 0px;

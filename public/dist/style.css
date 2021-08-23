@@ -1631,6 +1631,20 @@ html[dir='rtl'] .okayNav__nav--invisible.transition-enabled {
       padding-left: 30px;
       border-left: 1px dotted #cccccc; } }
 
+html[dir='rtl'] .article blockquote:after {
+  right: auto;
+  left: 0px; }
+
+html[dir='rtl'] .article .article__image figcaption:before {
+  margin-right: auto;
+  margin-left: 10px;
+  background: url("../img/camera.png"); }
+
+html[dir='rtl'] .article .article__keywords li {
+  float: right;
+  margin-right: auto;
+  margin-left: 10px; }
+
 html[dir='rtl'] .articleMetadata .articleMetadata__byline {
   margin-right: 0px;
   margin-left: 20px; }
