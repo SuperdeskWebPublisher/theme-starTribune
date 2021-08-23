@@ -115,6 +115,9 @@ input {
 .marginBottom30 {
   margin-bottom: 30px; }
 
+.navigation + main.container {
+  margin-top: 40px; }
+
 .verticalMiddle {
   display: inline-block;
   vertical-align: middle;
@@ -685,19 +688,29 @@ input {
 
 .authorMetadata {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px; }
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 30px; }
+  @media (min-width: 769px) {
+    .authorMetadata {
+      align-items: center;
+      flex-direction: row;
+      margin-bottom: 50px; } }
   .authorMetadata .authorMetadata__image {
-    flex: 0 0 80px;
-    margin-right: 30px; }
+    flex: 0 0 100px;
+    max-width: 100px;
+    margin-right: 30px;
+    margin-bottom: 20px; }
+    @media (min-width: 769px) {
+      .authorMetadata .authorMetadata__image {
+        margin-bottom: 0px; } }
     .authorMetadata .authorMetadata__image img {
       border-radius: 100%; }
-  .authorMetadata .authorMetadata__infoWrap h4 {
+  .authorMetadata .authorMetadata__infoWrap h2 {
     font-weight: 600;
     margin-top: 0px; }
   .authorMetadata .authorMetadata__infoWrap p {
-    font-size: 1.6rem !important;
-    margin-bottom: 0px !important; }
+    margin-bottom: 10px; }
 
 .banner {
   position: relative; }
