@@ -1,5 +1,4 @@
 .accordion {
-  overflow: hidden;
   counter-reset: number;
   #accordion-1 {
     display: block;
@@ -50,6 +49,7 @@
     position: relative;
     padding: 15px 70px 15px 15px;
     border-bottom: 1px dotted #cccccc;
+    overflow: hidden;
     &:after {
       position: absolute;
       top: -15px;

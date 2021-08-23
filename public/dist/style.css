@@ -142,7 +142,6 @@ input {
     width: 24px; }
 
 .accordion {
-  overflow: hidden;
   counter-reset: number; }
   .accordion #accordion-1 {
     display: block; }
@@ -186,7 +185,8 @@ input {
   .accordion .accordion__sectionItem {
     position: relative;
     padding: 15px 70px 15px 15px;
-    border-bottom: 1px dotted #cccccc; }
+    border-bottom: 1px dotted #cccccc;
+    overflow: hidden; }
     .accordion .accordion__sectionItem:after {
       position: absolute;
       top: -15px;
