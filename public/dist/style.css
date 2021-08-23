@@ -1147,6 +1147,11 @@ blockquote .small:before {
             display: block; } }
   .mainArticleList .mainArticleList__text {
     font-size: 1.6rem; }
+    .mainArticleList .mainArticleList__text a {
+      color: #333333; }
+      @media (min-width: 769px) {
+        .mainArticleList .mainArticleList__text a {
+          color: #fff; } }
     @media (min-width: 769px) {
       .mainArticleList .mainArticleList__text {
         position: absolute;
