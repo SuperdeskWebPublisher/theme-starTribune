@@ -12,6 +12,11 @@
     margin-bottom: 30px;
   }
 }
+
+.navigation + main.container {
+  margin-top: 40px;
+}
+
 .verticalMiddle {
   display: inline-block;
   vertical-align: middle;
