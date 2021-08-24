@@ -1,4 +1,4 @@
-<article class="mainArticle {{class}}">
+<article class="mainArticle {#class#}">
 
 {% set rend1250 = null %}
 {% set rend610 = null %}
@@ -50,7 +50,7 @@
   {% endif %}
 
 
-{% if imageClass == '' %}{% set imageClass = 'mainArticleList__image' %}{% endif %}
+{% if imageClass == '' %}{% set imageClass = 'mainArticle__image' %}{% endif %}
   <figure class="{{ imageClass }} {% if image =='small' %}{{ imageClass }}--small{% endif %} ">
     <a href="{{ url(article) }}">
     <picture>
