@@ -64,7 +64,6 @@
     margin-top: 10px;
   }
   .article__headline {
-    @include letterSpacing();
     font-size: 4rem;
     font-weight: 900;
     margin-top: 20px;

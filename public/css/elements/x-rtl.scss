@@ -38,8 +38,12 @@ html[dir='rtl'] {
     ul {
       padding-right: 0;
       li {
-        margin-right: 0px;
+        margin-right: auto;
         margin-left: 10px;
+        @include sm {
+          margin-right: auto;
+          margin-left: 40px;
+        }
       }
     }
   }
@@ -72,18 +76,30 @@ html[dir='rtl'] {
     }
   }
 
-  .articleMetadata {
-    .articleMetadata__byline {
-      margin-right: 0px;
-      margin-left: 20px;
+  .article {
+    blockquote {
+      &:after {
+        right: auto;
+        left: 0px;
+      }
+    }
+    .article__image {
+      figcaption {
+        &:before {
+          margin-right: auto;
+          margin-left: 10px;
+          background: url("../img/camera.png");
+        }
+      }
+    }
+    .article__keywords {
+      li {
+        float: right;
+        margin-right: auto;
+        margin-left: 10px;
+      }
     }
   }
-
-
-
-
-
-
 
   .articleGrid {
     .articleGrid__item {
@@ -149,6 +165,72 @@ html[dir='rtl'] {
       @include lg {
         float: right;
       }
+    }
+  }
+
+  .articleMetadata {
+    .articleMetadata__byline {
+      margin-right: 0px;
+      margin-left: 10px;
+    }
+    .articleMetadata__auth {
+      margin-right: 0px;
+      margin-left: 15px;
+      .articleMetadata__auth__img {
+        margin-right: 0px;
+        margin-left: 15px;
+      }
+    }
+    .articleMetadata__info {
+      &--white {
+        &.articleMetadata__shares {
+          @include sm {
+            background: center right no-repeat url('../img/share-white.png');
+          }
+        }
+        &.articleMetadata__comments {
+          @include sm {
+            background: center right no-repeat url('../img/comments-white.png');
+          }
+        }
+      }
+    }
+    .articleMetadata__shares {
+      padding-left: 0px;
+      padding-right: 20px;
+      background: center right no-repeat url('../img/share.png');
+    }
+    .articleMetadata__comments {
+      padding-left: 0px;
+      padding-right: 20px;
+      background: center right no-repeat url('../img/comments.png');
+      &:before {
+        left: auto;
+        right: -12px;
+      }
+    }
+    .articleMetadata__image {
+      margin-right: 0px;
+      margin-left: 10px;
+    }
+    .articleMetadata__updated {
+      margin-left: 0px;
+      margin-right: 10px;
+    }
+  }
+
+  .authorMetadata {
+    .authorMetadata__image {
+      margin-right: 0px;
+      margin-left: 30px;
+    }
+  }
+
+  .banner {
+    .banner__image {
+      right: auto;
+      left: 0px;
+      bottom: 0px;
     }
   }
 

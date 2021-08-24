@@ -1,0 +1,32 @@
+.authorMetadata {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 30px;
+  @include sm {
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
+  .authorMetadata__image {
+    flex: 0 0 100px;
+    max-width: 100px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    @include sm {
+      margin-bottom: 0px;
+    }
+    img {
+      border-radius: 100%;
+    }
+  }
+  .authorMetadata__infoWrap {
+    h2 {
+      font-weight: 600;
+      margin-top: 0px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}

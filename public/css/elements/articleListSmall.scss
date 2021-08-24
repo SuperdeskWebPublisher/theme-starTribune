@@ -4,11 +4,11 @@
     @include mobileBorder();
   }
   .articleListSmall__image {
+    width: 90px;
     float: left;
     margin-right: 20px;
   }
   .articleListSmall__headline {
-    @include letterSpacing();
     font-size: 1.8rem;
     font-weight: 700;
     margin-top: 0px;
@@ -55,4 +55,8 @@
       margin-top: 0px;
     }
   }
+}
+
+.article .articleListSmall figure img {
+
 }

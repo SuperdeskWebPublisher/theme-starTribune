@@ -19,27 +19,27 @@
       {% if articleKicker %}<span class="article__kicker">{{ articleKicker }}</span>{% endif %}
       <h2 class="article__headline marginBottom30"> {{ gimme.article.title }}</h2>
 
-          {% for author in gimme.article.authors %} 
-
-          <div class="authorMetadata">          
-              <figure class="authorMetadata__image">
-                <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}"><img alt="{{ author.name }}" src="{{ url(author.avatar) }}" /></a>
-              </figure>
-              <div class="authorMetadata__infoWrap">                                    
-                <h3><a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}">{{ author.name }}</a></h3>
-                <p>{{ author.biography }}</p> 
-              </div>
-          </div>
-
-          {% endfor %}
+          
 
       <div class="article__lead">
         <p>{{ gimme.article.lead|raw }}</p>
       </div>
 
       <div class="articleMetadata marginBottom30">
+        {% for author in gimme.article.authors %} 
 
-        <time class="articleMetadata__info hidden-xs" datetime="{{ gimme.article.publishedAt|date("c") }}">{{ gimme.article.publishedAt|date("d F Y, H:i \\h") }}</time>
+          <div class="articleMetadata__auth">          
+              <figure class="articleMetadata__auth__img">
+                <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}"><img alt="{{ author.name }}" src="{{ url(author.avatar) }}" /></a>
+              </figure>
+              <div class="articleMetadata__auth__name">
+                <a href="{{ url('Authors', { 'authorSlug' : author.slug }) }}">{{ author.name }}</a>
+              </div>
+          </div>
+
+          {% endfor %}
+
+        <time class="articleMetadata__info" datetime="{{ gimme.article.publishedAt|date("c") }}">{{ gimme.article.publishedAt|date("d F Y, H:i \\h") }}</time>
 
         {% if gimme.article.publishedAt != gimme.article.updatedAt %}
         <span class="articleMetadata__info hidden-xs">updated <span class="articleMetadata__updated">{{ gimme.article.updatedAt|date("d F Y, H:i \\h") }}</span></span>
@@ -78,7 +78,7 @@
   {% endif %}
 
   {% if rend400 != null %}
-      <figure>
+      <figure class="article__image">
          <picture>
            {% if webp400 %}<source media="(max-width: 680px)" srcset="{{ rend400 }}" type="image/webp">{% endif %}                 
            <source media="(max-width: 680px)" srcset="{{ fallbackJPGsmall }}" type="{{ mimeType }}">
@@ -173,13 +173,13 @@
 
   <div class="banner greyBackground marginBottom30 col-md-12 col-sm-12 col-xs-12">
     <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6">
+      <div class="col-md-6 col-sm-6 col-xs-12">
         <h2>Subscribe headline</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu enim in velit bibendum gravida nec et odio.</p>
         <a class="button button--blue" href="#">Subscribe</a>
       </div>
 
-      <div class="banner__image col-md-6 col-sm-6 col-xs-6">
+      <div class="banner__image col-md-6 col-sm-6 col-xs-12">
         <a href="#"><img src="{{asset('theme/img/subscribe_image.png')}}"></a>
       </div>
     </div>

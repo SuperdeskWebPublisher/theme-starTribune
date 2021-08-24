@@ -12,11 +12,11 @@
   <main class="container">
     <div class="row">
 
-      <div class="col-md-9 col-sm-12 col-xs-12">
+      <div class="col-md-8 col-sm-12 col-xs-12">
         {% gimme author with { slug: app.request.attributes.get('authorSlug') } %}
         {% set currentAuthor = author %} 
 
-        <div class="authorMetadata marginTop30 marginBottom30">       
+        <div class="authorMetadata">       
           <figure class="authorMetadata__image"><img src="{{ url(author.avatar) }}"></figure>
           <div class="authorMetadata__infoWrap">
             <h2>{{ author.name }}</h2>
