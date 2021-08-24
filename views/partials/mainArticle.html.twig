@@ -1,4 +1,4 @@
-<article class="mainArticle {{class}}">
+<article class="mainArticle {#class#}">
 
 {% set rend1250 = null %}
 {% set rend610 = null %}
@@ -42,15 +42,15 @@
       {% endif %}
     {% endgimme %}
 
-  {% else %}
+  {# else %}
     {% set imgCaption = "Tribune Theme" %}
     {% set fallbackJPGsmall = "/public/img/article_img/400x240.jpg" %}
     {% set fallbackJPGmedium = "/public/img/article_img/610x380.jpg" %}
-    {% set fallbackJPGbig = "/public/img/article_img/1250x600.jpg" %}
+    {% set fallbackJPGbig = "/public/img/article_img/1250x600.jpg" #}
   {% endif %}
 
 
-{% if imageClass == '' %}{% set imageClass = 'mainArticleList__image' %}{% endif %}
+{% if imageClass == '' %}{% set imageClass = 'mainArticle__image' %}{% endif %}
   <figure class="{{ imageClass }} {% if image =='small' %}{{ imageClass }}--small{% endif %} ">
     <a href="{{ url(article) }}">
     <picture>
