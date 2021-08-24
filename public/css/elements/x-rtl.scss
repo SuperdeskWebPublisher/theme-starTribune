@@ -101,13 +101,6 @@ html[dir='rtl'] {
     }
   }
 
-  .articleMetadata {
-    .articleMetadata__byline {
-      margin-right: 0px;
-      margin-left: 20px;
-    }
-  }
-
   .articleGrid {
     .articleGrid__item {
       @include mobileBorder();
@@ -178,7 +171,7 @@ html[dir='rtl'] {
   .articleMetadata {
     .articleMetadata__byline {
       margin-right: 0px;
-      margin-left: 20px;
+      margin-left: 10px;
     }
     .articleMetadata__auth {
       margin-right: 0px;
